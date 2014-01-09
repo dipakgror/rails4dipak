@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="span12 box_wrapper">
+      <div class="row-fluid">
+        <div class="span2"></div>
+        <div class="span8 box" style="margin-top: 80px;">
+          <div>
+            <div class="head">
+              <center>
+                <h3>Log in to your account</h3>
+              </center>
+            </div>
+            <div class="row-fluid">
+              <div class="span3"></div>
+              <div class="span7">
+                <div class="form">
+                  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+                    <div class="row">
+                      Email: <%= f.text_field :email, :placeholder => "Email", :class => "span11" %>
+                    </div>
+                    <div class="row">
+                      Password: &nbsp;&nbsp;<%= f.password_field :password, :placeholder => "Password", :class => "span11" %>
+                    </div>
+                    <div class="row">
+                      <% if devise_mapping.rememberable? -%>
+                        <div class="row-fluid">
+                          <div class="span6">
+                            <%= f.check_box :remember_me %>
+                            <span for="remember_me">Remember me</span>
+                          </div>
+                          <div class="span6">
+                            <%= link_to "Forgot password?", new_password_path(resource_name) %>
+                          </div>
+                        </div>
+                        <br/>
+                      <% end %>
+                      <div class="row-fluid">
+                        <%= f.submit "Sign in", :class=> "btn btn-primary" %>
+                      </div>
+                    </div>
+                  <% end %>
+                  <div class="row">
+                    <p class="already">
+                      Don't have an account? <%= link_to('Sign up', new_user_registration_path) %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="span2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="span2"></div>        
+      </div>
+    </div>
+  </div>

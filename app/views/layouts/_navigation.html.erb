@@ -1,0 +1,18 @@
+<%# navigation styled for Twitter Bootstrap 3.0 %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="nav-collapse collapse">
+    <ul class="nav pull-right">
+      <li><a href="<%= root_path %>" class="active">HOME</a></li>
+      <li><a href="#">FEATURES</a></li>
+      <li><a href="#">PRICING</a></li>
+      <li><a href="#">CONTACT US</a></li>
+      <li><a href="#">CASE STUDY</a></li>
+      <% unless current_user %> 
+        <li><a class="btn-header" href="<%= new_user_registration_path %>">Sign up</a></li>
+        <li><a class="btn-header" href="<%= user_session_path %>">Sign in</a></li>
+      <% else %>
+        <li><%= link_to('Signout', destroy_user_session_path, :method => :delete, :class => "btn-header") %></li> 
+      <% end %>
+    </ul>
+  </div>
+</nav>
